@@ -1,5 +1,4 @@
 import {sql} from "@vercel/postgres"
-// import { DeleteForm } from "@/app/delete-form";
 import { AddForm } from "./add-form";
 import { DeleteForm } from "./delete-form";
 

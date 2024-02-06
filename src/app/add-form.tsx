@@ -1,7 +1,6 @@
 "use client";
 
-import { useFormState } from "react-dom";
-import { useFormStatus } from "react-dom";
+import { useFormStatus,useFormState } from "react-dom";
 import { createTodo } from "@/app/actions";
 
 const initialState = {
@@ -26,7 +25,7 @@ export function AddForm() {
       <label htmlFor="todo">Enter Task</label>
       <input type="text" id="todo" name="todo" required className="border"/>
       <SubmitButton />
-      <p aria-live="polite" className="sr-only" role="status">
+      <p aria-live="polite" className="sr-only">
         {state?.message}
       </p>
     </form>

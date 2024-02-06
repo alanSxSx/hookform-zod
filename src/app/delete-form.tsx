@@ -7,6 +7,11 @@ const initialState = {
   message: "",
 };
 
+type DeleteFormProps = Readonly<{
+    id: number;
+    todo: string;
+  }>;
+
 function DeleteButton() {
   const { pending } = useFormStatus();
 
@@ -17,7 +22,7 @@ function DeleteButton() {
   );
 }
 
-export function DeleteForm({ id, todo }: { id: number; todo: string }) {
+export function DeleteForm({ id, todo }: DeleteFormProps) {
   const [state, formAction] = useFormState(deleteTodo, initialState);
 
   return (
@@ -25,7 +30,7 @@ export function DeleteForm({ id, todo }: { id: number; todo: string }) {
       <input type="hidden" name="id" value={id} />
       <input type="hidden" name="todo" value={todo} />
       <DeleteButton />
-      <p aria-live="polite" className="sr-only" role="status">
+      <p aria-live="polite" className="sr-only">
         {state?.message}
       </p>
     </form>

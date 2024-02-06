@@ -4,8 +4,6 @@ import { revalidatePath } from "next/cache";
 import {sql} from "@vercel/postgres";
 import { z } from "zod";
 
-
-
 // CREATE TABLE todos (
 //   id SERIAL PRIMARY KEY,
 //   text TEXT NOT NULL
@@ -35,8 +33,9 @@ export async function createTodo(
       INSERT INTO todos (text)
       VALUES (${data.todo})
     `;
-
+    
     revalidatePath("/");
+
     return { message: `Added todo ${data.todo}` };
   } catch (e) {
     return { message: "Failed to create todo" };
